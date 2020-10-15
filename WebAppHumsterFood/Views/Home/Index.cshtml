@@ -1,0 +1,699 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@{ 
+    int countInBasket = 0;
+    try
+    {
+        countInBasket = ViewBag.Orders.Count;
+    }
+    catch
+    {
+        countInBasket = 0;
+    }
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Главная</title>
+    <link rel="SHORTCUT ICON" href="~/img/icont.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+    <link href="~/css/templatemo-style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/all.min.css" />
+    <style>
+        .raz div {
+            max-width: 30px; /* блок занимает ширину родителя, max-width её ограничивает */
+            min-height: 30px;
+            margin-left: auto;
+            margin-right: 90px; /*40px*/
+            margin-bottom: 20px;
+        }
+         a { 
+    text-decoration: none; /* Отменяем подчеркивание у ссылки */
+   } 
+        #basket {
+            color: #592404;
+        }
+
+        #basket {
+            -moz-transition: all 0.7s ease-out;
+            -o-transition: all 0.7s ease-out;
+            -webkit-transition: all 0.7s ease-out;
+        }
+
+            #basket:hover {
+                -webkit-transform: scale(1.1);
+                -moz-transform: scale(1.1);
+                -o-transform: scale(1.1);
+            }
+
+        #free {
+            width: 400px;
+        }
+
+        .button7 {
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: .8em 1em calc(.8em + 3px);
+            border-radius: 3px;
+            background: rgb(64,199,129);
+            box-shadow: 0 -3px rgb(53,167,110) inset;
+            transition: 0.2s;
+        }
+
+            .button7:hover {
+                background: rgb(53, 167, 110);
+            }
+
+            .button7:active {
+                background: rgb(33,147,90);
+                box-shadow: 0 3px rgb(33,147,90) inset;
+            }
+    </style>
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+<body>
+
+    <div class="container">
+        <!-- Top box -->
+        <!-- Logo & Site Name -->
+        
+            <div class="placeholder">
+                <a href="/home" class="tm-paging-link active">Menu</a>
+                <div class="parallax-window" data-parallax="scroll">
+                    <div class="tm-header">
+
+                        <div class="raz">
+                            <div>
+                                <a href="/home/Basket"><i class="fas fa-shopping-cart fa-3x" id="basket">(@countInBasket)</i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+       
+            </div>
+        <main>
+            <header class="row tm-welcome-section">
+                <h2 class="col-12 text-center tm-section-title">Доставка суши, пиццы города Нур-Султан(Астана)</h2>
+                <p class="col-12 text-center"></p>
+            </header>
+            
+            <div class="tm-paging-links">
+                <nav>
+                    <ul>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link active">Пицца</a></li>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link">Суши</a></li>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link">Горячие закуски</a></li>
+                        <li class="tm-paging-item"><a href="#" class="tm-paging-link">Сеты</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Gallery -->
+            <div class="row tm-gallery">
+                <!-- gallery page 1 -->
+                <div id="tm-gallery-page-pizza" class="tm-gallery-page">
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/Pizza/Пепперони.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Пепперони</h4>
+                                <p class="tm-gallery-price">1500 тг</p>
+
+                                <p class="tm-gallery-price"><a href="/home/AddOrderInBasket1?nameFood=pepperoni" class="button7">В корзину</a></p>
+
+
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/Pizza/Маргарита.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Маргарита</h4>
+                                <p class="tm-gallery-price">1200 тг</p>
+                                <p class="tm-gallery-price"><a href="/home/AddOrderInBasket1?nameFood=margarita" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/Pizza/Грибная.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Грибная</h4>
+                                <p class="tm-gallery-price">1500 тг</p>
+                                <p class="tm-gallery-price"><a href="/home/AddOrderInBasket1?nameFood=gribn" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+
+                </div> <!-- gallery page 1 -->
+                <!-- gallery page 2 -->
+                <div id="tm-gallery-page-sushi" class="tm-gallery-page hidden">
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/Sushi/Филадельфия.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Филадельфия (1 порция 10шт)</h4>
+                                <p class="tm-gallery-description">состав: семга  рис, сыр, огурцы</p>
+
+                                <p class="tm-gallery-price">1800 тг <a href="/home/AddOrderInBasket1?nameFood=filadelf" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/Sushi/ЛососьТемпура.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Лосось темпура</h4>
+                                <p class="tm-gallery-description">состав: рис,сыр, лосось, огурцы обжаренные в панировке</p>
+
+                                <p class="tm-gallery-price">1500 тг <a href="/home/AddOrderInBasket1?nameFood=losostemp" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/Sushi/Спайси.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Спайси ролл </h4>
+                                <p class="tm-gallery-description">состав: рис, сыр, огурец, кунжут</p>
+
+                                <p class="tm-gallery-price">1500 тг <a href="/home/AddOrderInBasket1?nameFood=spasiroll" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/Sushi/ЧизРолл.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Чиз ролл</h4>
+                                <p class="tm-gallery-description">состав: рис, семга, сыр огурец</p>
+
+                                <p class="tm-gallery-price">1500 тг <a href="/home/AddOrderInBasket1?nameFood=chizroll" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/Sushi/Сегун.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сегун</h4>
+                                <p class="tm-gallery-description">состав: рис, сыр, семга, огурцы</p>
+
+                                <p class="tm-gallery-price">1300 тг <a href="/home/AddOrderInBasket1?nameFood=segun" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/Sushi/Фудзияма.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Фудзияма</h4>
+                                <p class="tm-gallery-description">состав, рис, сыр, огурцы, икра</p>
+
+                                <p class="tm-gallery-price">1300 тг <a href="/home/AddOrderInBasket1?nameFood=fudziyama" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/Sushi/КаппаМаки.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Каппа маки</h4>
+                                <p class="tm-gallery-description">состав: рис, огурцы</p>
+                                <p class="tm-gallery-price">500 тг <a href="/home/AddOrderInBasket1?nameFood=kappamaki" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/Sushi/СакеМаки.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Саке маки</h4>
+                                <p class="tm-gallery-description">состав рис, лосось</p>
+                                <p class="tm-gallery-price">600 тг <a href="/home/AddOrderInBasket1?nameFood=sakemaki" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/Sushi/Калифорния.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Калифорния</h4>
+                                <p class="tm-gallery-description">состав: рис, сыр, краб, огурец, тобико</p>
+                                <p class="tm-gallery-price">1400 тг <a href="/home/AddOrderInBasket1?nameFood=claleforn" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+
+                </div> <!-- gallery page 2 -->
+                <!-- gallery page 3 -->
+                <div id="tm-gallery-page-hotfood" class="tm-gallery-page hidden">
+
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/Фри.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Фри 1 порция 250гр</h4>
+                                <p class="tm-gallery-description"></p>
+                                <p class="tm-gallery-price">500 тг <a href="/home/AddOrderInBasket1?nameFood=fre" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/ПустойФри.png" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                @* Место для будущего блюда *@
+                            </figcaption>
+                        </figure>
+                    </article><article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/ПустойФри.png" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                @* Место для будущего блюда *@
+                            </figcaption>
+                        </figure>
+                    </article><article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/ПустойФри.png" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                @* Место для будущего блюда *@
+                            </figcaption>
+                        </figure>
+                    </article>
+
+                </div> <!-- gallery page 3 -->
+                @* galereya 4 *@
+                <div id="tm-gallery-page-sets" class="tm-gallery-page hidden">
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/Canada.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет "Канада" 40шт</h4>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  20шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 10шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния 10шт</p>
+                                <p class="tm-gallery-price">4800 тг <a id="btn1" href="/home/AddOrderInBasket1?nameFood=canada" class="button7">В корзину</a></p>
+                                <form name="form1" method="post" action="addinbasket">
+                                    <input id="BtnId" name="BtnId" type="hidden" value="btn1" />
+                                </form>
+
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/Ninja.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет " Ниндзя" 30шт</h4>
+                                <p class="tm-gallery-description">🎁Пицца🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  10шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 10шт</p>
+                                <p class="tm-gallery-description">🍣 Каппа маки 10шт</p>
+                                <p class="tm-gallery-price">4300 тг <a id="btn2" href="/home/AddOrderInBasket1?nameFood=ninja" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/Paris.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет "Париж" 40шт</h4>
+                                <p class="tm-gallery-description">🎁Пицца🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  10шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния 10шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 10шт</p>
+                                <p class="tm-gallery-description">🍣 Саке маки 10шт</p>
+                                <p class="tm-gallery-price">4800 тг <a id="btn3" href="/home/AddOrderInBasket1?nameFood=paris" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/Venecia.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет "Венеция " 40шт</h4>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Фудзияма  10шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 10шт</p>
+                                <p class="tm-gallery-description">🍣 Саке маки 10шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния  10шт</p>
+                                <p class="tm-gallery-price">3800 тг <a id="btn4" href="/home/AddOrderInBasket1?nameFood=venecia" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/Maiami.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет "Майами" 60шт</h4>
+                                <p class="tm-gallery-description">🎁 Пицца🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  20шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния 10шт</p>
+                                <p class="tm-gallery-description">🍣 Фудзияма 10шт</p>
+                                <p class="tm-gallery-description">🍣 Каппа маки 10шт</p>
+                                <p class="tm-gallery-description">🍣 Саке маки 10шт</p>
+                                <p class="tm-gallery-price">5800 тг <a id="btn5" href="/home/AddOrderInBasket1?nameFood=maiami" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/Madrid.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет "Мадрид" 50шт</h4>
+                                <p class="tm-gallery-description">🎁 Пицца 🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  20шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 10шт</p>
+                                <p class="tm-gallery-description">🍣 Спайси 10шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния 10шт</p>
+                                <p class="tm-gallery-price">5800 тг <a id="btn6" href="/home/AddOrderInBasket1?nameFood=madrid" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/Vulkan.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет " Вулкан" 90шт</h4>
+                                <p class="tm-gallery-description">🎁 Пицца 🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  20шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 30шт</p>
+                                <p class="tm-gallery-description">🍣 Спайси 10шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния 10шт</p>
+                                <p class="tm-gallery-description">🍣 Каппа маки 10шт</p>
+                                <p class="tm-gallery-description">🍣 Саке маки 10шт</p>
+                                <p class="tm-gallery-price">6300 тг <a id="btn7" href="/home/AddOrderInBasket1?nameFood=vulcan" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/HealthDragon.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет "Сердце дракона" 90шт</h4>
+                                <p class="tm-gallery-description">🎁 Пицца 🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия 20шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 20шт</p>
+                                <p class="tm-gallery-description">🍣 Спайси 10шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния 10шт</p>
+                                <p class="tm-gallery-description">🍣 Каппа маки 10шт</p>
+                                <p class="tm-gallery-description">🍣Саке маки 20шт</p>
+                                <p class="tm-gallery-price">6300 тг <a id="btn8" href="/home/AddOrderInBasket1?nameFood=dragon" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/Samurai.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет "Искушение самурая" 110шт</h4>
+                                <p class="tm-gallery-description">🎁 Пицца 🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  20шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 20шт</p>
+                                <p class="tm-gallery-description">🍣 Спайси 10шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния 10шт</p>
+                                <p class="tm-gallery-description">🍣 Фудзияма  10шт</p>
+                                <p class="tm-gallery-description">🍣 Каппа маки 20шт</p>
+                                <p class="tm-gallery-description">🍣Саке маки 20шт</p>
+                                <p class="tm-gallery-price">6800 тг <a id="btn9" href="/home/AddOrderInBasket1?nameFood=samurai" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/raiskoe.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+
+                                <h4 class="tm-gallery-title">Сет " Райское наслаждение" 130шт</h4>
+                                <p class="tm-gallery-description">🎁 Пицца 🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  20шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 30шт</p>
+                                <p class="tm-gallery-description">🍣 Спайси 10шт</p>
+                                <p class="tm-gallery-description">🍣 Чиз ролл 10шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния 10шт</p>
+                                <p class="tm-gallery-description">🍣 Фудзияма 10штт</p>
+                                <p class="tm-gallery-description">🍣 Каппа маки 20шт</p>
+                                <p class="tm-gallery-description">🍣 Саке маки 20шт</p>
+                                <p class="tm-gallery-price">7800 тг <a id="btn10" href="/home/AddOrderInBasket1?nameFood=raiskoe" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/imperator.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет "Император" 130шт</h4>
+                                <p class="tm-gallery-description">🎁 Пицца 🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия 30шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 20шт</p>
+                                <p class="tm-gallery-description">🍣 Спайси 10шт</p>
+                                <p class="tm-gallery-description">🍣 Чиз ролл 10шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния 10шт</p>
+                                <p class="tm-gallery-description">🍣 Фудзияма 10шт</p>
+                                <p class="tm-gallery-description">🍣 Каппа маки 20шт</p>
+                                <p class="tm-gallery-description">🍣 Саке маки 20шт</p>
+                                <p class="tm-gallery-price">8300 тг <a id="btn11" href="/home/AddOrderInBasket1?nameFood=imperator" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/triumf.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет "Триумф" 150шт</h4>
+                                <p class="tm-gallery-description">🎁 2 Пиццы 🍕🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  30шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 30шт</p>
+                                <p class="tm-gallery-description">🍣 Спайси 10шт</p>
+                                <p class="tm-gallery-description">🍣 Чиз ролл 10шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния 10шт</p>
+                                <p class="tm-gallery-description">🍣 Сегун 10шт</p>
+                                <p class="tm-gallery-description">🍣 Фудзияма 10шт</p>
+                                <p class="tm-gallery-description">🍣 Каппа маки 20шт</p>
+                                <p class="tm-gallery-description">🍣 Саке маки 20шт</p>
+                                <p class="tm-gallery-price">9000 тг <a id="btn12" href="/home/AddOrderInBasket1?nameFood=triumf" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/Astana.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет "Астана" 30шт</h4>
+                                <p class="tm-gallery-description">🎁 Пицца 🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  10шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 20шт</p>
+                                <p class="tm-gallery-price">4300 тг <a id="btn13" href="/home/AddOrderInBasket1?nameFood=astana" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/DariJapan.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет "Дары Японии" 40шт</h4>
+                                <p class="tm-gallery-description">🎁 Пицца 🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  10шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния 10шт</p>
+                                <p class="tm-gallery-description">🍣 Цезарь10шт</p>
+                                <p class="tm-gallery-description">🍣 Сегун 10шт</p>
+                                <p class="tm-gallery-price">5300 тг <a id="btn14" href="/home/AddOrderInBasket1?nameFood=japan" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/lotos.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет "Цветок жизни" 50шт</h4>
+                                <p class="tm-gallery-description">🎁 Пицца 🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  10шт</p>
+                                <p class="tm-gallery-description">🍣 Калифорния 10шт</p>
+                                <p class="tm-gallery-description">🍣 Теплые роллы 10шт</p>
+                                <p class="tm-gallery-description">🍣 Сегун 10шт</p>
+                                <p class="tm-gallery-description">🍣 Цезарь 10шт</p>
+                                <p class="tm-gallery-price">5800 тг <a id="btn15" href="/home/AddOrderInBasket1?nameFood=lotos" class="button7">В корзину</a></p>
+                            </figcaption>
+                        </figure>
+                    </article>
+
+                    <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                        <figure>
+                            <img src="~/img/gallery/filadelfia.jpeg" alt="Image" class="img-fluid tm-gallery-img" />
+                            <figcaption>
+                                <h4 class="tm-gallery-title">Сет " Филадельфия" 40шт</h4>
+                                <p class="tm-gallery-description">🎁 Пицца 🍕</p>
+                                <p class="tm-gallery-description">🎁 Pepsi 1 л 🥤</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  10шт</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия с икрой10шт</p>
+                                <p class="tm-gallery-description">🍣 Филадельфия  темпура10шт</p>
+                                <p class="tm-gallery-description">🍣 Запечённая Филадельфия 10шт</p>
+                                <p class="tm-gallery-price">5800 тг <a id="btn16" href="/home/AddOrderInBasket1?nameFood=setfiladelf" class="button7">В корзину</a></p>
+
+
+                            </figcaption>
+                        </figure>
+                    </article>
+
+                </div>
+
+
+            </div>
+            @*<div class="tm-section tm-container-inner">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="tm-description-box">
+                        <h4 class="tm-gallery-title">Наши контакты:</h4>
+                        <p class="tm-mb-45"> +7******7820 </p>
+                        <p class="tm-mb-45"> Адрес: ул. ***** д.*****</p>
+                        <a href="about.html" class="tm-btn tm-btn-default tm-right">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        </main>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+
+        <main>
+            <header class="row tm-welcome-section">
+                <h2 class="col-12 text-center tm-section-title">Контакты:</h2>
+                @*<p class="col-12 text-center">You may use <a rel="nofollow" href="https://www.ltcclock.com/downloads/simple-contact-form/" target="_blank">Simple Contact Form</a> to send email to your inbox. You can modify and use this template for your website. Header image has a parallax effect. Total 3 HTML pages included in this template.</p>*@
+            </header>
+
+            <div class="tm-container-inner-2 tm-contact-section">
+
+                <div class="col-md-6">
+                    <div class="tm-address-box">
+                        @*<h4 class="tm-info-title tm-text-success">Our Address</h4>
+                        <address>
+                            180 Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus 10550
+                        </address>*@
+                        <a href="tel:+77079336040" class="tm-contact-link">
+                            <i class="fas fa-phone tm-contact-icon"></i>+7 707 933 6040
+                        </a>
+                        <a href="mailto:info@company.co" class="tm-contact-link">
+                            <i class="fas fa-envelope tm-contact-icon"></i>Xomyaksushi@gmail.com
+                        </a>
+                        <div class="tm-contact-social">
+                            @* <a href="https://fb.com/templatemo" class="tm-social-link"><i class="fab fa-facebook tm-social-icon"></i></a>*@
+                            <a style="color: green" href="https://wa.me/77079336040?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5.%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7" @*class="tm-social-link"*@><i class="fab fa-whatsapp fa-1x"></i>  +77079336040</a>
+                            @*<a href="#" class="tm-social-link"><i class="fab fa-instagram tm-social-icon"></i></a>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <footer class="tm-footer text-center">
+        <p>
+            Copyright &copy; 2020 Simple House
+
+            | Design: <a rel="nofollow" href="#">Хомяк</a>
+        </p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        });
+        $('#btn1').on("change").click(
+            function () { document.getElementById("form1").submit(); }
+        );
+    </script>
+
+
+
+
+
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/parallax.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Handle click on paging links
+            $('.tm-paging-link').click(function (e) {
+                e.preventDefault();
+
+                var page = $(this).text().toLowerCase();
+                $('.tm-gallery-page').addClass('hidden');
+                if (page == "пицца") {
+                    $('#tm-gallery-page-' + "pizza").removeClass('hidden');
+                }
+                else if (page == "суши") {
+                    $('#tm-gallery-page-' + "sushi").removeClass('hidden');
+                }
+                else if (page == "горячие закуски") {
+                    $('#tm-gallery-page-' + "hotfood").removeClass('hidden');
+                }
+                else if (page == "сеты") {
+                    $('#tm-gallery-page-' + "sets").removeClass('hidden');
+                }
+
+                $('.tm-paging-link').removeClass('active');
+                $(this).addClass("active");
+            });
+        });
+    </script>
+</body>
+</html>

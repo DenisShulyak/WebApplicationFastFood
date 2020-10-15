@@ -1,0 +1,382 @@
+﻿@{
+    ViewBag.Title = "Basket";
+}
+@using System.Text;
+@{
+    var count = 0;
+}
+@{
+    int countInBasket = 0;
+    try
+    {
+        countInBasket = ViewBag.Orders.Count;
+    }
+    catch
+    {
+        countInBasket = 0;
+    }
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Корзина</title>
+    <link rel="SHORTCUT ICON" href="~/img/icont.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+    <link href="~/css/templatemo-style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/all.min.css" />
+
+
+    <style>
+        .raz div {
+            max-width: 30px; /* блок занимает ширину родителя, max-width её ограничивает */
+            min-height: 30px;
+            margin-left: auto;
+            margin-right: 90px; /*40px*/
+            margin-bottom: 20px;
+        }
+
+        #basket {
+            color: #592404;
+        }
+
+        #basket {
+            -moz-transition: all 0.7s ease-out;
+            -o-transition: all 0.7s ease-out;
+            -webkit-transition: all 0.7s ease-out;
+        }
+
+            #basket:hover {
+                -webkit-transform: scale(1.1);
+                -moz-transform: scale(1.1);
+                -o-transform: scale(1.1);
+            }
+
+        #free {
+            width: 400px;
+        }
+
+        .button7 {
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: .8em 1em calc(.8em + 3px);
+            border-radius: 3px;
+            background: rgb(64,199,129);
+            box-shadow: 0 -3px rgb(53,167,110) inset;
+            transition: 0.2s;
+        }
+
+            .button7:hover {
+                background: rgb(53, 167, 110);
+            }
+
+            .button7:active {
+                background: rgb(33,147,90);
+                box-shadow: 0 3px rgb(33,147,90) inset;
+            }
+
+        .group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        input {
+            font-size: 16px;
+            padding: 10px;
+            display: block;
+            width: 300px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+        }
+
+            input:focus {
+                outline: none;
+            }
+
+        label {
+            color: #999;
+            font-size: 18px;
+            position: absolute;
+            pointer-events: none;
+            left: 10px;
+            top: 15px;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+
+        /* active state */
+        input:focus ~ label, input:valid ~ label {
+            top: -15px;
+            font-size: 14px;
+            color: #5264AE;
+        }
+
+
+        /* BOTTOM BARS ================================= */
+        .bar {
+            position: relative;
+            display: block;
+            width: 320px;
+        }
+
+            .bar:before, .bar:after {
+                content: "";
+                height: 2px;
+                width: 0;
+                bottom: 0;
+                position: absolute;
+                background: #5264AE;
+                transition: 0.2s ease all;
+                -moz-transition: 0.2s ease all;
+                -webkit-transition: 0.2s ease all;
+            }
+
+            .bar:before {
+                left: 50%;
+            }
+
+            .bar:after {
+                right: 50%;
+            }
+
+        . superbutton:focus {
+            outline: none;
+        }
+        /* active state */
+        input:focus ~ .bar:before,
+        input:focus ~ .bar:after {
+            width: 50%;
+        }
+
+
+        .superbutton {
+            width: 150px;
+            height: 40px;
+            border-radius: 20px;
+            background: #459DE5;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        a { 
+    text-decoration: none; /* Отменяем подчеркивание у ссылки */
+   } 
+.tm-paging-a {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  background-color: #2F956D;
+}
+.tm-paging-a.active,
+.tm-paging-a:hover {
+  background-color: #2F956D;
+  color: white;
+}
+    </style>
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+<body>
+
+    <div class="container">
+        <!-- Top box -->
+        <!-- Logo & Site Name -->
+            <a href="/home" >
+            <div class="tm-paging-a">
+                Menu
+            </div>
+            </a>
+        <div class="placeholder">
+            <div class="parallax-window" data-parallax="scroll">
+                <div class="tm-header">
+
+                    <div class="raz">
+                        <div>
+                            <a href="/home/Basket"><i class="fas fa-shopping-cart fa-3x" id="basket">(@countInBasket)</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <header class="row tm-welcome-section">
+                <h2 class="col-12 text-center tm-section-title">Ваша корзина:</h2>
+                <p class="col-12 text-center">Ниже вы можете оставить заявку на доставку всего содержимого корзины.</p>
+            </header>
+            @if (countInBasket == 0)
+            {
+                <p class="col-12 text-left">Корзина пуста</p>
+            }
+            else
+            {
+                foreach (var order in ViewBag.Orders)
+                {
+                    <p class="col-12 text-left">Название: @order.Name | Цена: @order.Price тг</p>
+                    count += order.Price;
+
+                }
+
+            }
+            <p class="col-12 text-left">Всего: @count тг</p>
+            <br />
+            @if(countInBasket != 0)
+            {
+            <form action="SendToEmail" method="post">
+                <p class="col-12 text-left">
+                    <div class="group">
+                        <input name="name" type="text" required>
+                        <span class="bar"></span>
+                        <label>Имя:</label>
+                    </div>
+                </p>
+                <p class="col-12 text-left">
+                    <div class="group">
+                        <input name="phone" type="tel" required>
+                        <span class="bar"></span>
+                        <label>Номер телефона:</label>
+                    </div>
+                </p>
+                <p class="col-12 text-left"><input type="submit" class="superbutton" name="submit" value="Оставить заявку" /></p>
+            </form>
+            }
+
+            <br />
+            <br />
+            @* <p class="col-12 text-left"><a href="/home/bid" class="button7">Оставить заявку</a></p>*@
+
+
+            <br />
+            <br />
+
+            <br />
+
+
+        </main>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+
+        <main>
+            <header class="row tm-welcome-section">
+                <h2 class="col-12 text-center tm-section-title">Контакты:</h2>
+                @*<p class="col-12 text-center">You may use <a rel="nofollow" href="https://www.ltcclock.com/downloads/simple-contact-form/" target="_blank">Simple Contact Form</a> to send email to your inbox. You can modify and use this template for your website. Header image has a parallax effect. Total 3 HTML pages included in this template.</p>*@
+            </header>
+
+            <div class="tm-container-inner-2 tm-contact-section">
+
+                <div class="col-md-6">
+                    <div class="tm-address-box">
+                        @*<h4 class="tm-info-title tm-text-success">Our Address</h4>
+                            <address>
+                                180 Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus 10550
+                            </address>*@
+                        <a href="tel:+77079336040" class="tm-contact-link">
+                            <i class="fas fa-phone tm-contact-icon"></i>+7 707 933 6040
+                        </a>
+                        <a href="mailto:info@company.co" class="tm-contact-link">
+                            <i class="fas fa-envelope tm-contact-icon"></i>Xomyaksushi@gmail.com
+                        </a>
+                        <div class="tm-contact-social">
+                            @* <a href="https://fb.com/templatemo" class="tm-social-link"><i class="fab fa-facebook tm-social-icon"></i></a>*@
+                            <a style="color: green" href="https://wa.me/77079336040?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5.%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7" @*class="tm-social-link"*@><i class="fab fa-whatsapp fa-1x"></i>  +77079336040</a>
+                            @*<a href="#" class="tm-social-link"><i class="fab fa-instagram tm-social-icon"></i></a>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="tm-footer text-center">
+        <p>
+            Copyright &copy; 2020 Simple House
+
+            | Design: <a rel="nofollow" href="#">Хомяк</a>
+        </p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        });
+        $('#btn1').on("change").click(
+            function () { document.getElementById("form1").submit(); }
+        );
+    </script>
+
+
+
+
+
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/parallax.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Handle click on paging links
+            $('.tm-paging-link').click(function (e) {
+                e.preventDefault();
+
+                var page = $(this).text().toLowerCase();
+                $('.tm-gallery-page').addClass('hidden');
+                if (page == "пицца") {
+                    $('#tm-gallery-page-' + "pizza").removeClass('hidden');
+                }
+                else if (page == "суши") {
+                    $('#tm-gallery-page-' + "sushi").removeClass('hidden');
+                }
+                else if (page == "горячие закуски") {
+                    $('#tm-gallery-page-' + "hotfood").removeClass('hidden');
+                }
+                else if (page == "сеты") {
+                    $('#tm-gallery-page-' + "sets").removeClass('hidden');
+                }
+
+                $('.tm-paging-link').removeClass('active');
+                $(this).addClass("active");
+            });
+        });
+    </script>
+</body>
+</html>
